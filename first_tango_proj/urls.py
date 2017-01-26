@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -24,7 +26,9 @@ from django.contrib import admin
 from django.conf.urls import include
 from rango import views
 urlpatterns = [
+    url(r'^$' , views.about, name='about'),
     url(r'^$', views.index, name='index'),
     url(r'^rango/', include('rango.urls')),
+    url(r'^rango/about/', include('rango.urls')),   
     url(r'^admin/', admin.site.urls),
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
