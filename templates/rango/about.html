@@ -1,19 +1,22 @@
-{% load staticfiles %}
-<html>
-    <head>
-	<title>About</title>
-    </head>
-    <body>
-        <h1>Dog vs Cat</h1>
+        {% extends 'rango/base.html' %}
+	{% load staticfiles %}
+	{% block title_block %}
+		About
+	{% endblock %}
+	
+	{% block body_block %}
         <div>
-            <a href="/rango/">Back to Index</a><br />
-        </div>
-	<div>
-            This tutorial has been put together by CB
-	</div>
-	<div>
-            <img src="{{ MEDIA_URL}}cat.jpg"/>
-            <img src="{% static "images/dog.jpg" %}"alt="Picture of Dog" /> 
-        </div>
-    </body>
-</html>
+	        <h1 class="page-header">About Page</h1>			
+	        This tutorial has been put together by 2193356B
+		</div>	
+		<img src="{% static "images/dog.jpg" %}" alt="Picture of a dog" />
+		<p>
+		<img src="{{MEDIA_URL}}cat.jpg" alt="Picture of a grumpy cat">
+		<p>.
+	</p>
+	<hr>
+
+		<button class="btn btn-primary" id="about-btn"> JQuery Alert Example</button>
+	<p>This text is for a Jquery Example - I'll turn red when you hover over me.</p>
+	<div id="msg">Hello - I'm here for a Jquery Example too</div>
+	{% endblock %}
